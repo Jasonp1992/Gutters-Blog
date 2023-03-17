@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllPostsAsync, selectPosts } from "../slices/postSlice";
 import Header from "./Header";
 import Footer from "./Footer";
 import BlogCard from "./BlogCard";
@@ -13,6 +15,13 @@ interface BlogInfo {
 }
 
 const Homepage: React.FC = () => {
+    const dispatch = useDispatch();
+    const posts = useSelector(selectPosts)
+
+    useEffect(() => {
+        dispatch(fetchAllPostsAsync())
+    }, [])
+
 
     const blogs: BlogInfo[] = [
         {
@@ -55,8 +64,8 @@ const Homepage: React.FC = () => {
     return (
         <div className="homepage">
             <Header />
-            {blogs ? (
-                blogs.map((blog) => {
+            {posts ? (
+                posts.map((blog) => {
                     return <BlogCard key={blog.id} blogData={blog} />
                 })
             ) : null}
