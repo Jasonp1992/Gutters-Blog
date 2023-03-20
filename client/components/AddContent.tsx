@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -12,9 +12,16 @@ interface BlogInfo {
 }
 
 const AddContent: React.FC = () => {
+  const [title, setTitle] = useState<String>("");
+  const [imgRef, setImgRef] = useState<String>("");
+  const [category, setCategory] = useState<String>("");
+  const [description, setDescription] = useState<String>("")
+  
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log("submited")
+        console.log(`title: ${title}, img: ${imgRef}, category: ${category}, des: ${description}`)
+        console.log(new Date)
     };
 
   return (
@@ -23,13 +30,13 @@ const AddContent: React.FC = () => {
         <h2>Add New Post</h2>
         <form id="new-post-form" onSubmit={handleSubmit}>
             <label>Title</label>
-            <input id='title'/>
+            <input id='title' onChange={(e) => {setTitle(e.target.value)}}/>
             <label>Image Reference</label>
-            <input id='imgRef'/>
+            <input id='imgRef' onChange={(e) => {setImgRef(e.target.value)}}/>
             <label>Category</label>
-            <input id='category'/>
+            <input id='category' onChange={(e) => {setCategory(e.target.value)}}/>
             <label>Content</label>
-            <textarea id="description"/>
+            <textarea id="description" onChange={(e) => {setDescription(e.target.value)}}/>
             
             <button type='submit'>Save</button>
         </form>
