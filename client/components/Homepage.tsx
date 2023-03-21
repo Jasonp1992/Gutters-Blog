@@ -10,9 +10,9 @@ interface BlogInfo {
     id: number;
     title: string;
     imgRef: string;
-    date: string;
     category: string;
     description: string;
+    createdAt: string;
 }
 
 const Homepage: React.FC = () => {
