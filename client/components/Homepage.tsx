@@ -28,7 +28,11 @@ const Homepage: React.FC = () => {
             <Header />
             {posts && posts.length ? (
                 posts.map((post: BlogInfo) => {
-                    return <BlogCard key={post.id} blogData={post} />
+                    return (
+                    <div key={post.id}>
+                        <BlogCard blogData={post} />
+                    </div>
+                    )
                 })
             ) : null}
             <Footer />
