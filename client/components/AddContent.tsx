@@ -1,28 +1,30 @@
 import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import { newPostAsync } from '../slices/postSlice'
+import { AppDispatch } from '../store'
+import { useDispatch } from 'react-redux'
 
 interface BlogInfo {
     id: number;
     title: string;
     imgRef: string;
-    date: string;
     category: string;
     description: string;
+    createdAt: string;
 }
 
 const AddContent: React.FC = () => {
-  const [title, setTitle] = useState<String>("");
-  const [imgRef, setImgRef] = useState<String>("");
-  const [category, setCategory] = useState<String>("");
-  const [description, setDescription] = useState<String>("")
-  
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log("submited")
-        console.log(`title: ${title}, img: ${imgRef}, category: ${category}, des: ${description}`)
-        console.log(new Date)
-    };
+  const [title, setTitle] = useState<string>("");
+  const [imgRef, setImgRef] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
+  const [description, setDescription] = useState<string>("")
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    dispatch(newPostAsync({ title, imgRef, category, description}))
+  };
 
   return (
     <div className='add-content'>
