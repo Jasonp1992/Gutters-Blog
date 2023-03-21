@@ -53,7 +53,7 @@ export const postSlice = createSlice({
       return action.payload
     })
     builder.addCase(newPostAsync.fulfilled, (state, action) => {
-      state.push(action.payload)
+      return action.payload
     })
   },
 })

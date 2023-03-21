@@ -4,6 +4,7 @@ import Footer from './Footer'
 import { newPostAsync } from '../slices/postSlice'
 import { AppDispatch } from '../store'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 interface BlogInfo {
     id: number;
@@ -20,10 +21,12 @@ const AddContent: React.FC = () => {
   const [category, setCategory] = useState<string>("");
   const [description, setDescription] = useState<string>("")
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate()
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(newPostAsync({ title, imgRef, category, description}))
+    navigate('/')
   };
 
   return (
