@@ -1,4 +1,7 @@
 import React from 'react'
+import { deletePostAsync } from '../slices/postSlice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../store';
 
 interface BlogInfo {
     id: number;
@@ -14,6 +17,7 @@ interface Props {
 }
 
 const BlogCard: React.FC<Props> = ({ blogData }) => {
+  const dispatch = useDispatch<AppDispatch>()
   const formatter = new Intl.DateTimeFormat("en-GB", {
     year: "numeric",
     month: "long",
@@ -26,6 +30,10 @@ const BlogCard: React.FC<Props> = ({ blogData }) => {
     }
   }
 
+  const handleDelete = (id: number) => {
+    dispatch(deletePostAsync(id))
+  }
+
   return (
     <div className='blog-card'>
         <img src={ blogData.imgRef } alt='sample pic' className='thumbnail-pic'/>
@@ -34,6 +42,7 @@ const BlogCard: React.FC<Props> = ({ blogData }) => {
             <p className='date'>{ formatDate(blogData.createdAt) } | { blogData.category.toUpperCase() }</p>
             <p>{ blogData.description } <span><a href=''>Read More...</a></span></p>
         </div>
+        <button onClick={() => {handleDelete(blogData.id)}}>delete</button>
     </div>
   )
 }
