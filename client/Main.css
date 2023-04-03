@@ -33,23 +33,24 @@ body {
 
 .blog-card {
     background-color: white;
-    color: rgb(117, 116, 116);
+    color: rgb(151, 148, 148);
     display: flex;
     justify-content: space-between;
     gap: 10px;
     border-radius: 2px;
-    padding: 20px;
     margin: 10px;
     max-width: 690px;
+    height: 250px;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
 }
 
-.thumbnail-pic {
-    border-radius: 2px;
-    height: 175px;
+.thumbnail-pic {   
+    width: 250px;
+    object-fit: cover;
 }
 
 .blog-card-text {
+    padding: 30px;
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -109,6 +110,7 @@ body {
 }
 
 .author-bio-container{
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,5 +148,48 @@ body {
     display: flex;
     justify-content: center;
     gap: 5%;
-    margin: 50px;
+}
+
+.hamburger-icon{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.hamburger-icon:hover{
+    width: 22px;
+    height: 22px;
+    transition: width .5s, height .5s;
+}
+
+.hamburger-icon:active{
+    width: 19px;
+    height: 19px;
+}
+
+.sidebar-container{
+    position: fixed;
+    size: fill;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(168, 168, 168, 0.541);
+    z-index: 2;
+}
+
+.sidebar-container a{
+    text-decoration: none;
+    color: black;
+    font-family: "Lato";
+    font-size: 50px;
+}
+
+.sidebar-container .link-holder{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 50px;
+    left: 20px;
 }

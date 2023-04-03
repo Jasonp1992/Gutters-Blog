@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllPostsAsync, selectPosts } from "../slices/postSlice";
-import Header from "./Header";
-import Footer from "./Footer";
 import BlogCard from "./BlogCard";
 import AuthorBio from "./AuthorBio";
 import { AppDispatch } from "../store";
+import hamburger from "../../public/assets/Img/hamburger.png"
+import Sidebar from "./Sidebar";
 
 interface BlogInfo {
     id: number;
@@ -19,13 +19,26 @@ interface BlogInfo {
 const Homepage: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const posts = useSelector(selectPosts)
+    const [sideBarOpen, setSideBarOpen] = useState<boolean>(false)
 
     useEffect(() => {
         dispatch(fetchAllPostsAsync())
     }, [])
 
+    const showSidebar = () => {
+        setSideBarOpen(!sideBarOpen)
+    }
+
     return (
         <div className="homepage">
+                <img className="hamburger-icon" src={hamburger} alt="black hamburger icon" onClick={showSidebar}/>
+                {
+                    sideBarOpen ? (
+                        <div className="sidebar-container" onClick={showSidebar}>
+                            <Sidebar />
+                        </div>
+                    ) : null
+                }
             <AuthorBio />
             <article>
             {posts && posts.length ? (

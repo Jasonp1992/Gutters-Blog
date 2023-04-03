@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "start-dev": "webpack -w & nodemon server",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "build": "webpack"
   },
   "author": "Jason Potvin",
   "license": "ISC",
@@ -40,6 +41,7 @@
     "style-loader": "^3.3.2",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.2",
+    "url-loader": "^4.1.1",
     "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1"
   }
