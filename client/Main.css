@@ -33,23 +33,24 @@ body {
 
 .blog-card {
     background-color: white;
-    color: rgb(117, 116, 116);
+    color: rgb(151, 148, 148);
     display: flex;
     justify-content: space-between;
     gap: 10px;
     border-radius: 2px;
-    padding: 20px;
     margin: 10px;
     max-width: 690px;
+    height: 250px;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
 }
 
-.thumbnail-pic {
-    border-radius: 2px;
-    height: 175px;
+.thumbnail-pic {   
+    width: 250px;
+    object-fit: cover;
 }
 
 .blog-card-text {
+    padding: 30px;
     width: 70%;
     display: flex;
     flex-direction: column;
