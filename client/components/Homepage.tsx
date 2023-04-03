@@ -4,6 +4,7 @@ import { fetchAllPostsAsync, selectPosts } from "../slices/postSlice";
 import Header from "./Header";
 import Footer from "./Footer";
 import BlogCard from "./BlogCard";
+import AuthorBio from "./AuthorBio";
 import { AppDispatch } from "../store";
 
 interface BlogInfo {
@@ -25,7 +26,8 @@ const Homepage: React.FC = () => {
 
     return (
         <div className="homepage">
-            <Header />
+            <AuthorBio />
+            <article>
             {posts && posts.length ? (
                 posts.map((post: BlogInfo) => {
                     return (
@@ -35,7 +37,7 @@ const Homepage: React.FC = () => {
                     )
                 })
             ) : null}
-            <Footer />
+            </article>
         </div>
     )
 }
