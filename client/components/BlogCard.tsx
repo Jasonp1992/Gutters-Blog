@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
 interface BlogInfo {
     id: number;
@@ -32,7 +33,7 @@ const BlogCard: React.FC<Props> = ({ blogData }) => {
         <div className='blog-card-text'>
             <h2>{ blogData.title }</h2>
             <p className='date'>{ formatDate(blogData.createdAt) } | { blogData.category.toUpperCase() }</p>
-            <p>{ blogData.description } <span><a href=''>Read More...</a></span></p>
+            <p>{ blogData.description } <span><Link to='/singlePost'>Read More...</Link></span></p>
         </div>
     </div>
   )
