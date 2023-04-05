@@ -6,8 +6,9 @@ const Sidebar = () => {
     <>
         <div className='link-holder'>
             <Link to="/">Home</Link>
-            <Link to="/newPost">Blogs</Link>
-            <Link to="">Contact Me</Link>
+            <Link to="/newPost">Blog</Link>
+            <Link to="">About</Link>
+            <Link to="">Contact</Link>
         </div>
     </>
   )
