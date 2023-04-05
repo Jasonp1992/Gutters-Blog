@@ -193,3 +193,55 @@ body {
     top: 50px;
     left: 20px;
 }
+
+.single-blog{
+    width: 1000px;
+    margin-top: 100px;
+    background-color: #ffffff;
+    color: rgb(117, 116, 116);
+}
+
+.img-holder{
+    width: 1000;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: solid black 8px;
+}
+
+.single-header-img{
+    width: 1000px;
+    position: absolute;
+    display: block;
+    top: -50px;
+    left: 0;
+}
+
+.single-article {
+    margin: 50px 70px 70px 70px;
+    font-family: "Lato";
+
+}
+
+.single-article h1{
+    font-size: 45px;
+    border-bottom: solid rgb(117, 116, 116) 2px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.single-article p{
+    line-height: 25px;
+    padding-top: 30px;
+    font-size: 18px;
+}
+
+.single-article img{
+    float: left;
+    padding: 0 10px 10px 0;
+}
+
+.date-name{
+    display: flex;
+    justify-content: space-around;
+}
